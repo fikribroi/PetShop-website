@@ -1,0 +1,88 @@
+erDiagram
+    USERS {
+        int id PK
+        string name
+        string username UK
+        string password
+        enum role
+        timestamp created_at
+    }
+
+    CATEGORIES ||--o{ PRODUCTS : "mengelompokkan (1:N)"
+    CATEGORIES {
+        int id PK
+        string name
+        text description
+        timestamp created_at
+    }
+
+    PRODUCTS {
+        int id PK
+        int category_id FK
+        string name
+        text description
+        decimal price
+        int stock
+        string image
+        timestamp created_at
+    }
+
+    CUSTOMERS ||--o{ PETS : "memiliki (1:N)"
+    CUSTOMERS ||--o{ BOOKINGS : "membuat (1:N)"
+    CUSTOMERS ||--o{ TRANSACTIONS : "melakukan (1:N)"
+    CUSTOMERS {
+        int id PK
+        string name
+        string phone
+        string email
+        text address
+        timestamp created_at
+    }
+
+    PETS ||--o{ BOOKINGS : "didaftarkan (1:N)"
+    PETS {
+        int id PK
+        int customer_id FK
+        string name
+        string type
+        string breed
+        int age
+        text notes
+        timestamp created_at
+    }
+
+    SERVICES ||--o{ BOOKINGS : "dipesan (1:N)"
+    SERVICES {
+        int id PK
+        string name
+        text description
+        decimal price
+        string duration
+        timestamp created_at
+    }
+
+    BOOKINGS ||--o| TRANSACTIONS : "dibuatkan_tagihan (1:1)"
+    BOOKINGS {
+        int id PK
+        string booking_code UK
+        int customer_id FK
+        int pet_id FK
+        int service_id FK
+        date start_date
+        date end_date
+        text notes
+        enum status
+        timestamp created_at
+    }
+
+    TRANSACTIONS {
+        int id PK
+        int customer_id FK
+        int booking_id FK "nullable"
+        date transaction_date
+        string description
+        decimal total
+        enum payment_status
+        timestamp created_at
+    }
+

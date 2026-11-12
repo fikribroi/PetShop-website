@@ -144,17 +144,18 @@ CREATE TABLE `transactions` (
 -- ===============================================================
 
 -- 1. Data Dummy users (10 data)
+-- Password default SEMUA akun: admin123
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `role`) VALUES
-(1, 'Administrator Utama', 'admin', '$2y$10$BBL98X7hN4liX/kVXYKG7ebSmVCtLXRv/jRrVHYPeDLBGTtRpuasi', 'admin'),
-(2, 'Sarah Caretaker', 'sarah', '$2y$10$BBL98X7hN4liX/kVXYKG7ebSmVCtLXRv/jRrVHYPeDLBGTtRpuasi', 'staff'),
-(3, 'Budi Groomer', 'budi', '$2y$10$BBL98X7hN4liX/kVXYKG7ebSmVCtLXRv/jRrVHYPeDLBGTtRpuasi', 'staff'),
-(4, 'Dina Kasir', 'dina', '$2y$10$BBL98X7hN4liX/kVXYKG7ebSmVCtLXRv/jRrVHYPeDLBGTtRpuasi', 'staff'),
-(5, 'Rian Supervisor', 'rian', '$2y$10$BBL98X7hN4liX/kVXYKG7ebSmVCtLXRv/jRrVHYPeDLBGTtRpuasi', 'admin'),
-(6, 'Mega Paramita', 'mega', '$2y$10$BBL98X7hN4liX/kVXYKG7ebSmVCtLXRv/jRrVHYPeDLBGTtRpuasi', 'staff'),
-(7, 'Faisal Adiputra', 'faisal', '$2y$10$BBL98X7hN4liX/kVXYKG7ebSmVCtLXRv/jRrVHYPeDLBGTtRpuasi', 'staff'),
-(8, 'Anisa Rahma', 'anisa', '$2y$10$BBL98X7hN4liX/kVXYKG7ebSmVCtLXRv/jRrVHYPeDLBGTtRpuasi', 'staff'),
-(9, 'Hendra Gunawan', 'hendra', '$2y$10$BBL98X7hN4liX/kVXYKG7ebSmVCtLXRv/jRrVHYPeDLBGTtRpuasi', 'staff'),
-(10, 'Taufik Hidayat', 'taufik', '$2y$10$BBL98X7hN4liX/kVXYKG7ebSmVCtLXRv/jRrVHYPeDLBGTtRpuasi', 'admin');
+(1, 'Administrator Utama', 'admin', 'admin123', 'admin'),
+(2, 'Sarah Caretaker', 'sarah', 'admin123', 'staff'),
+(3, 'Budi Groomer', 'budi', 'admin123', 'staff'),
+(4, 'Dina Kasir', 'dina', 'admin123', 'staff'),
+(5, 'Rian Supervisor', 'rian', 'admin123', 'admin'),
+(6, 'Mega Paramita', 'mega', 'admin123', 'staff'),
+(7, 'Faisal Adiputra', 'faisal', 'admin123', 'staff'),
+(8, 'Anisa Rahma', 'anisa', 'admin123', 'staff'),
+(9, 'Hendra Gunawan', 'hendra', 'admin123', 'staff'),
+(10, 'Taufik Hidayat', 'taufik', 'admin123', 'admin');
 
 -- 2. Data Dummy categories (10 data)
 INSERT INTO `categories` (`id`, `name`, `description`) VALUES

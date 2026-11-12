@@ -1,7 +1,5 @@
 <?php
-/**
- * Admin Footer Partials (PawHouse)
- */
+
 ?>
     </div> <!-- End .admin-body -->
 </div> <!-- End .admin-main -->

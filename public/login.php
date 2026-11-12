@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$username]);
         $user = $stmt->fetch();
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && $password === $user['password']) {
             login_user($user);
             redirect(base_url('admin/index.php'), 'Selamat datang kembali, ' . $user['name'] . '!', 'success');
         } else {

@@ -139,8 +139,7 @@ CREATE TABLE `transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ===============================================================
--- BAGIAN 2: DATA AWAL / SEEDER (DML)
--- Minimal 10 data realistis per tabel (Total 84 baris data dummy)
+-- BAGIAN 2: DATA AWAL (DML)
 -- ===============================================================
 
 -- 1. Data Dummy users (10 data)
@@ -187,16 +186,16 @@ INSERT INTO `products` (`id`, `category_id`, `name`, `description`, `price`, `st
 
 -- 4. Data Dummy customers (10 data)
 INSERT INTO `customers` (`id`, `name`, `phone`, `email`, `address`) VALUES
-(1, 'Dimas Pratama', '081234567890', 'dimas.pratama@gmail.com', 'Jl. Merpati No. 12, Sukajadi, Bandung'),
-(2, 'Aditya Nugraha', '081398765432', 'aditya.nugraha@yahoo.com', 'Jl. Anggrek Melati Blok B4, Cimahi'),
-(3, 'Siti Nurhaliza', '085711223344', 'siti.nur@gmail.com', 'Komplek Permata Buah Batu No. 45, Bandung'),
-(4, 'Kevin Wijaya', '082199887766', 'kevin.wijaya@outlook.com', 'Jl. Dago Asri No. 8, Coblong, Bandung'),
-(5, 'Rina Anggraini', '087855443322', 'rina.anggraini@gmail.com', 'Jl. Pasir Kaliki No. 102, Bandung'),
-(6, 'Bayu Wicaksono', '081288334455', 'bayu.wicak@hotmail.com', 'Jl. Cihampelas No. 56, Bandung'),
-(7, 'Nadya Amanda', '085812345678', 'nadya.amanda@gmail.com', 'Jl. Gandapura No. 23, Riau, Bandung'),
-(8, 'Rizky Firmansyah', '089677889900', 'rizky.firman@gmail.com', 'Jl. Antapani Raya No. 78, Bandung'),
-(9, 'Dewi Lestari', '081344556677', 'dewi.lestari@gmail.com', 'Jl. Setiabudhi Regency Kav 5, Bandung'),
-(10, 'Farhan Maulana', '082233445566', 'farhan.m@gmail.com', 'Jl. Gegerkalong Hilir No. 19, Bandung');
+(1, 'Dimas Pratama', '083153032700', 'dimas.pratama@gmail.com', 'Jl. Merpati No. 12, Sukajadi, Bandung'),
+(2, 'Aditya Nugraha', '083153032700', 'aditya.nugraha@yahoo.com', 'Jl. Anggrek Melati Blok B4, Cimahi'),
+(3, 'Siti Nurhaliza', '083153032700', 'siti.nur@gmail.com', 'Komplek Permata Buah Batu No. 45, Bandung'),
+(4, 'Kevin Wijaya', '083153032700', 'kevin.wijaya@outlook.com', 'Jl. Dago Asri No. 8, Coblong, Bandung'),
+(5, 'Rina Anggraini', '083153032700', 'rina.anggraini@gmail.com', 'Jl. Pasir Kaliki No. 102, Bandung'),
+(6, 'Bayu Wicaksono', '083153032700', 'bayu.wicak@hotmail.com', 'Jl. Cihampelas No. 56, Bandung'),
+(7, 'Nadya Amanda', '083153032700', 'nadya.amanda@gmail.com', 'Jl. Gandapura No. 23, Riau, Bandung'),
+(8, 'Rizky Firmansyah', '083153032700', 'rizky.firman@gmail.com', 'Jl. Antapani Raya No. 78, Bandung'),
+(9, 'Dewi Lestari', '083153032700', 'dewi.lestari@gmail.com', 'Jl. Setiabudhi Regency Kav 5, Bandung'),
+(10, 'Farhan Maulana', '083153032700', 'farhan.m@gmail.com', 'Jl. Gegerkalong Hilir No. 19, Bandung');
 
 -- 5. Data Dummy pets (12 data)
 INSERT INTO `pets` (`id`, `customer_id`, `name`, `type`, `breed`, `age`, `notes`) VALUES
@@ -253,13 +252,11 @@ INSERT INTO `transactions` (`id`, `customer_id`, `booking_id`, `transaction_date
 (10, 10, 10, '2026-11-15', 'Penitipan Poodle Coco (5 hari) + Grooming Styling', 535000.00, 'Belum Lunas');
 
 -- ===============================================================
--- BAGIAN 3: QUERY PENGUJIAN & LAPORAN JOIN (DQL)
--- Kumpulan query JOIN dan agregasi untuk presentasi tugas & pengujian
+-- BAGIAN 3: QUERY CONTOH & LAPORAN
 -- ===============================================================
 
 -- ---------------------------------------------------------------
--- Query 1. JOIN Produk + Kategori (Inner Join)
--- Menampilkan nama produk, kategori, harga, dan stok
+-- Query 1. Data Produk dan Kategori
 -- ---------------------------------------------------------------
 SELECT 
     p.id,
@@ -273,8 +270,7 @@ INNER JOIN categories c ON p.category_id = c.id
 ORDER BY c.name ASC, p.name ASC;
 
 -- ---------------------------------------------------------------
--- Query 2. JOIN Hewan Peliharaan + Pelanggan (Pemilik)
--- Menampilkan identitas hewan, ras, umur, dan data kontak pemilik
+-- Query 2. Data Hewan dan Pemilik
 -- ---------------------------------------------------------------
 SELECT 
     pet.id,
@@ -291,8 +287,7 @@ INNER JOIN customers cust ON pet.customer_id = cust.id
 ORDER BY cust.name ASC;
 
 -- ---------------------------------------------------------------
--- Query 3. JOIN 4 Tabel: Booking + Pelanggan + Hewan + Layanan
--- Menampilkan data lengkap pemesanan penitipan
+-- Query 3. Data Booking Lengkap
 -- ---------------------------------------------------------------
 SELECT 
     b.id,
@@ -315,8 +310,7 @@ INNER JOIN services s ON b.service_id = s.id
 ORDER BY b.created_at DESC;
 
 -- ---------------------------------------------------------------
--- Query 4. JOIN Transaksi + Pelanggan + Booking (LEFT JOIN)
--- Menampilkan catatan transaksi (baik dari reservasi booking maupun retail)
+-- Query 4. Data Transaksi
 -- ---------------------------------------------------------------
 SELECT 
     t.id AS id_transaksi,
@@ -332,8 +326,7 @@ LEFT JOIN bookings b ON t.booking_id = b.id
 ORDER BY t.transaction_date DESC;
 
 -- ---------------------------------------------------------------
--- Query 5. Query Agregasi Dashboard: Ringkasan Total Data Sistem
--- Digunakan untuk metrik kartu statistik pada Dashboard Admin
+-- Query 5. Ringkasan Data Dashboard
 -- ---------------------------------------------------------------
 SELECT 
     (SELECT COUNT(*) FROM products) AS total_produk,

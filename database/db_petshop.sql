@@ -1,24 +1,5 @@
 
 
--- ===============================================================
--- FILE BASIS DATA TUNGGAL (SINGLE ALL-IN-ONE SQL FILE)
--- SISTEM PET SHOP & PENITIPAN HEWAN PELIHARAAN (PAWHOUSE)
--- ===============================================================
--- Database : db_petshop
--- File     : database/db_petshop.sql
--- Penulis  : Tim Tubes Sistem Pet Shop & Penitipan Hewan
--- 
--- File ini merupakan SATU-SATUNYA file SQL yang dibutuhkan sistem.
--- Berisi 3 bagian terintegrasi:
---   1. DDL: Pembuatan database dan struktur 8 tabel InnoDB berelasi
---   2. DML: Data dummy realistis (minimal 10 baris per tabel, total 84 data)
---   3. DQL: Query JOIN dan agregasi untuk presentasi tugas & dashboard
---
--- Petunjuk Impor Cepat (Sekali Eksekusi):
---   - phpMyAdmin : Tab "Import" -> Pilih file ini -> Klik "Import/Kirim"
---   - Terminal   : mysql -u root < database/db_petshop.sql
--- ===============================================================
-
 CREATE DATABASE IF NOT EXISTS `db_petshop` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `db_petshop`;
 
